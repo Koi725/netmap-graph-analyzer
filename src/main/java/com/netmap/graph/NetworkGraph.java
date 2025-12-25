@@ -64,7 +64,10 @@ public class NetworkGraph implements Serializable {
         List<Edge> edges = adjacencyList.getOrDefault(nodeId, Collections.emptyList());
         
         for (Edge edge : edges) {
-            nodes.get(edge.getTargetId()).ifPresent(neighbors::add);
+            Node neighbor = nodes.get(edge.getTargetId());
+            if (neighbor != null) {
+                neighbors.add(neighbor);
+            }
         }
         
         return neighbors;
