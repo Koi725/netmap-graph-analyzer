@@ -32,7 +32,7 @@ compile() {
 
 compile_tests() {
     echo "Compiling test files..."
-    find $TEST_SRC_DIR -path "*/test/*" -name "*.java" > test-sources.txt
+    find $TEST_SRC_DIR -name "*.java" > test-sources.txt
     javac -d $TEST_BUILD_DIR -cp $BUILD_DIR -sourcepath $TEST_SRC_DIR @test-sources.txt
     
     if [ $? -eq 0 ]; then

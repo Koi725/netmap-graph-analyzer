@@ -1,0 +1,129 @@
+{
+  "nodes": [
+    {
+      "id": "firewall-01",
+      "name": "main-firewall",
+      "ip": "192.168.1.1",
+      "type": "FIREWALL"
+    },
+    {
+      "id": "client-0376",
+      "name": "laptop-alice",
+      "ip": "192.168.139.160",
+      "type": "CLIENT"
+    },
+    {
+      "id": "server-2311",
+      "name": "api-server-01",
+      "ip": "192.168.28.88",
+      "type": "SERVER"
+    },
+    {
+      "id": "client-8077",
+      "name": "laptop-alice",
+      "ip": "192.168.64.67",
+      "type": "CLIENT"
+    },
+    {
+      "id": "router-3999",
+      "name": "router-core-01",
+      "ip": "192.168.145.41",
+      "type": "ROUTER"
+    },
+    {
+      "id": "client-8422",
+      "name": "laptop-alice",
+      "ip": "192.168.73.1",
+      "type": "CLIENT"
+    },
+    {
+      "id": "switch-01",
+      "name": "core-switch",
+      "ip": "192.168.1.2",
+      "type": "SWITCH"
+    },
+    {
+      "id": "router-3445",
+      "name": "router-edge-01",
+      "ip": "192.168.208.195",
+      "type": "ROUTER"
+    },
+    {
+      "id": "client-5750",
+      "name": "workstation-01",
+      "ip": "192.168.43.49",
+      "type": "CLIENT"
+    },
+    {
+      "id": "server-9632",
+      "name": "db-server-01",
+      "ip": "192.168.44.178",
+      "type": "SERVER"
+    }
+  ],
+  "edges": [
+    {
+      "source": "firewall-01",
+      "target": "router-3445",
+      "bandwidth": 900,
+      "latency": 20,
+      "type": "VPN"
+    },
+    {
+      "source": "router-3999",
+      "target": "client-8422",
+      "bandwidth": 900,
+      "latency": 31,
+      "type": "ETHERNET"
+    },
+    {
+      "source": "router-3999",
+      "target": "client-8077",
+      "bandwidth": 900,
+      "latency": 26,
+      "type": "ETHERNET"
+    },
+    {
+      "source": "switch-01",
+      "target": "server-9632",
+      "bandwidth": 900,
+      "latency": 15,
+      "type": "FIBER"
+    },
+    {
+      "source": "switch-01",
+      "target": "server-2311",
+      "bandwidth": 600,
+      "latency": 25,
+      "type": "VPN"
+    },
+    {
+      "source": "switch-01",
+      "target": "client-5750",
+      "bandwidth": 400,
+      "latency": 21,
+      "type": "ETHERNET"
+    },
+    {
+      "source": "switch-01",
+      "target": "client-0376",
+      "bandwidth": 800,
+      "latency": 12,
+      "type": "WIRELESS"
+    },
+    {
+      "source": "router-3445",
+      "target": "switch-01",
+      "bandwidth": 300,
+      "latency": 14,
+      "type": "WIRELESS"
+    },
+    {
+      "source": "router-3445",
+      "target": "router-3999",
+      "bandwidth": 500,
+      "latency": 26,
+      "type": "VPN"
+    }
+  ]
+}

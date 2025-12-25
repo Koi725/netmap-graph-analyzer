@@ -73,7 +73,15 @@ public final class NetworkValidator {
     
     public static List<String> extractIPv4Addresses(String text) {
         List<String> ips = new ArrayList<>();
-        Matcher matcher = IPV4_PATTERN.matcher(text);
+        if (text == null || text.isEmpty()) return ips;
+        
+        // Simpler pattern for extraction (not validation)
+        Pattern extractPattern = Pattern.compile(
+            "\\b((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}" +
+            "(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\b"
+        );
+        
+        Matcher matcher = extractPattern.matcher(text);
         while (matcher.find()) {
             ips.add(matcher.group());
         }
